@@ -29,7 +29,10 @@
     и выведите их в консоль. -->
 
     <script>
-
+        let OneElements = document.querySelectorAll(".card-body *")
+        for (i=0; i<OneElements.length; i++){
+            console.log(OneElements[i])
+        }
     </script>
 </body>
 

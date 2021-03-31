@@ -19,7 +19,12 @@
     -->
 
     <script>
-        
+        let bold_list = document.getElementsByTagName("b");
+        for (let i = 0; i < bold_list.length; i++) {
+            if ( !bold_list[i].classList.contains("sign") ){
+                bold_list[i].classList.add("sign");
+            }
+        }
     </script>
 </body>
 </html>

@@ -17,7 +17,10 @@
     -->
 
     <script>
-
+        let tag_collection = document.getElementsByClassName("one");
+        for(let i = 0; i<tag_collection.length; i++){
+            console.log(tag_collection[i].tagName);
+        }
     </script>
 </body>
 </html>

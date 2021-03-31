@@ -12,7 +12,9 @@
     появлялось сообщение: "вы навели на textarea" -->
 
     <script>
-        
+        document.getElementsByTagName("textarea")[0].addEventListener('mouseover', function(){
+            console.log("вы навели на textarea");
+        })
     </script>
 </body>
 </html>
