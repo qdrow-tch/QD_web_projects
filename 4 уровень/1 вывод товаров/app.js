@@ -9,6 +9,11 @@
     <a href="https://example.com/producs/${здесь_id_товара}">Подробнее</a>
 </div>
 */
+let box_btn = document.querySelectorAll("button");
+let info_box = document.querySelector(".products");
+box_btn.forEach(function (elem) {
+    elem.addEventListener("click", clickHandler)
+})
 
 const products = {
     phones: [
@@ -82,10 +87,11 @@ const products = {
  */
 function clickHandler(event) {
     //вам нужно очищать содержимое .products
-    
+    info_box.innerHTML = "";
+    showCategory(event.target.getAttribute("data-type"));
     //в showCategory надо передать строку с типом категории, тип берите
     //из атрибута data-type у кнопки, по которой кликнули.
-    
+
 }
 
 /**
@@ -96,7 +102,9 @@ function clickHandler(event) {
  * по которой кликнули.
  */
 function showCategory(category) {
-    
+    products[`${category}`].forEach(function (elem) {
+        info_box.innerHTML += getProductMarkup(elem);
+    })
 }
 
 /**
@@ -109,5 +117,5 @@ function showCategory(category) {
  * в верху этого файла.
  */
 function getProductMarkup(product) {
-
+    return `<div class="product"><div>${product.name}</div><img src="${product.imageUrl}" alt=""><div>${product.price}</div><a href="https://example.com/producs/${product.id}">Подробнее</a></div>`
 }
